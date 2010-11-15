@@ -1,0 +1,41 @@
+#!/usr/bin/php
+<?php
+/**
+* Orchestra Twitter-Addon
+*
+* Intall script this is run from the cmd line to fully install this module into your orchestra application.
+*
+* Licensed under the MIT license.
+*
+* @category   Orchestra
+* @copyright  Copyright (c) 2010, Christopher Hein
+* @license    http://orchestramvc.chrishe.in/license
+* @version    Release: 0.0.1:beta
+* @link       http://orchestramvc.chrishe.in/
+*
+*/
+
+$path = getcwd();
+$name = "twitter-addon";
+$addons = "/lib/addons/";
+$css = "/frontend/stylesheets/";
+$js = "/frontend/javascripts/";
+$files = array(
+	'twitter.php',
+	'tweet.css',
+	'jquery.tweet.js'
+);
+
+	// Variables
+if($argv[1] == "play") {
+	
+	copy($path."/instruments/".$name."/files/".$files['0'], $path.$addons.$files['0']);
+	echo "CREATED :: ".$files['0']."\n";
+	
+	copy($path."/instruments/".$name."/files/".$files['1'], $path.$css.$files['1']);
+	echo "CREATED :: ".$files['1']."\n";
+	
+	copy($path."/instruments/".$name."/files/".$files['2'], $path.$js.$files['2']);
+	echo "CREATED :: ".$files['2']."\n";
+	
+}

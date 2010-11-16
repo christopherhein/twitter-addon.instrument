@@ -21,8 +21,8 @@ class Twitter {
 	protected $_id;
   
 	public function __construct($option = array()) {
-		if(isset($options['username'])) {
-			extract($options);
+		if(isset($option['username'])) {
+			extract($option);
 			$this->_username = $username;
 			$this->_avatar_size = $avatar_size;
 			$this->_count = $count;

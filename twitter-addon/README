@@ -1,20 +1,31 @@
-/* ----------------------- */
+
+
+
+--------------------------------------
+
 Twitter-Addon Instrument
 
-Finish installation by adding this to your config/boot.php
+To finish the installation and use this instrument you have a few more steps to take:
 
-require(LIB.'addons/twitter.php');
+  1) Add the following to config/boot.php in the // Framework Section
+  
+      require(LIB.'addons/twitter.php');
+  
+  2) Add the following before "$hooks = New Hooks();" 
 
-than add this to your lib/framework/views.php inside the render() method
+      $core['twitter'] = New Twitter(array(
+        'username' => 'your username',
+        'avatar_size' => 48,
+        'count' => 5,
+        'loading_text' => 'Loading Tweets...',
+        'id' => 'core-tweets'
+      ));
 
-$twitter = New Twitter(array(
-  'username' => 'your username',
-  'avatar_size' => 48,
-  'count' => 5,
-  'loading_text' => 'Loading Tweets...',
-  'id' => 'core-tweets'
-));
+  3) Lastly Add this in any .html.orc file
 
-and last enter this in your .html.orc
+      <?= $twitter->feed(); ?>
+      
+      
+Enjoy!
 
-<?= $twitter->feed(); ?>
+--------------------------------------
